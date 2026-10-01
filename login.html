@@ -1,52 +1,60 @@
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Iniciar sesión — Apunta</title>
-<link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iniciar sesión — Apunta</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 
-<div class="auth-shell">
-  <aside class="auth-side grid-texture">
-    <a href="index.html" class="brand"><span class="tab"></span>Apunta</a>
-    <p class="auth-quote">“Encontré la guía del segundo corte de Redes diez minutos antes del parcial.” <span>— estudiante de Ing. Multimedia</span></p>
-    <div class="auth-stat">
-      <div><strong>+120</strong><small>documentos activos</small></div>
-      <div><strong>8</strong><small>materias cubiertas</small></div>
-    </div>
-  </aside>
+  <div class="auth-shell">
+    <aside class="auth-side grid-texture">
+      <a href="index.html" class="brand"><span class="tab"></span>Apunta</a>
+      <p class="auth-quote">“Encontré la guía del segundo corte de Redes diez minutos antes del parcial.” <span>—
+          estudiante de Ing. Multimedia</span></p>
+      <div class="auth-stat">
+        <div><strong>+120</strong><small>documentos activos</small></div>
+        <div><strong>8</strong><small>materias cubiertas</small></div>
+      </div>
+    </aside>
 
-  <div class="auth-main">
-    <div class="auth-card">
-      <p class="kicker">Bienvenido de nuevo</p>
-      <h1>Inicia sesión</h1>
-      <p>Entra para descargar y subir material de tus materias.</p>
+    <div class="auth-main">
+      <div class="auth-card">
+        <a href="index.html" class="brand brand-mobile"><span class="tab"></span>Apunta</a>
+        <p class="kicker">Bienvenido de nuevo</p>
+        <h1>Inicia sesión</h1>
+        <p>Entra para descargar y subir material de tus materias.</p>
 
-      <div class="form-status ok" id="formStatus">Inicio de sesión simulado — aún no hay backend conectado.</div>
+        <div class="form-status ok" id="formStatus">Inicio de sesión simulado — aún no hay backend conectado.</div>
 
-      <form id="loginForm" novalidate>
-        <div class="field">
-          <label for="correo">Correo institucional</label>
-          <input type="email" id="correo" name="correo" placeholder="nombre@uao.edu.co" required>
-        </div>
-        <div class="field">
-          <label for="contrasena">Contraseña</label>
-          <input type="password" id="contrasena" name="contrasena" placeholder="••••••••" required>
-        </div>
+        <form id="loginForm" novalidate>
+          <div class="field">
+            <label for="correo">Correo institucional</label>
+            <input type="email" id="correo" name="correo" placeholder="nombre@uao.edu.co" required autocomplete="email"
+              aria-describedby="correo-error">
+            <small class="field-error" id="correo-error"></small>
+          </div>
+          <div class="field">
+            <label for="contrasena">Contraseña</label>
+            <input type="password" id="contrasena" name="contrasena" placeholder="••••••••" required
+              autocomplete="current-password" aria-describedby="contrasena-error">
+            <small class="field-error" id="contrasena-error"></small>
+          </div>
 
-        <div class="form-row-between">
-          <label class="checkbox-line"><input type="checkbox" id="recordar"> Recordarme</label>
-          <a href="#" class="link-pen">¿Olvidaste tu contraseña?</a>
-        </div>
+          <div class="form-row-between">
+            <label class="checkbox-line"><input type="checkbox" id="recordar"> Recordarme</label>
+            <a href="#" class="link-pen">¿Olvidaste tu contraseña?</a>
+          </div>
 
-        <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
-      </form>
+          <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
+        </form>
 
-      <p class="auth-switch">¿No tienes cuenta? <a href="registro.html" class="link-pen">Regístrate aquí</a></p>
+        <p class="auth-switch">¿No tienes cuenta? <a href="registro.html" class="link-pen">Regístrate aquí</a></p>
+      </div>
     </div>
   </div>
-</div>
 
-<script src="js/main.js"></script>
+  <script src="js/main.js"></script>
 </body>
+
 </html>
