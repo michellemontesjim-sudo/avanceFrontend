@@ -591,7 +591,7 @@ footer.site-footer .wrap {
 }
 .link-pen:hover { text-decoration: underline; }
 
-.auth-switch {
+.auth-card > .auth-switch {
   text-align: center;
   margin-top: 26px;
   font-size: 0.9rem;
