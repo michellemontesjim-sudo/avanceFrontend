@@ -629,6 +629,28 @@ footer.site-footer .wrap {
   outline-color: var(--pen);
 }
 
+/* ---------- Mostrar / ocultar contraseña ---------- */
+.input-wrap { position: relative; }
+
+.input-wrap input { padding-right: 84px; }
+
+.toggle-pass {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+  padding: 6px 10px;
+  border: 0;
+  border-radius: var(--radius);
+  background: none;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink-light);
+  cursor: pointer;
+}
+.toggle-pass:hover { color: var(--ink); background: rgba(27,42,74,0.06); }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .hero .wrap { grid-template-columns: 1fr; }

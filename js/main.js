@@ -23,6 +23,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ---- Mostrar / ocultar contraseña ----
+  // Cada botón .toggle-pass controla el input indicado en aria-controls.
+  document.querySelectorAll('.toggle-pass').forEach((btn) => {
+    const input = document.getElementById(btn.getAttribute('aria-controls'));
+    if (!input) return;
+    const nombre = btn.getAttribute('aria-label').replace(/^Mostrar /, '');
+
+    // Evita que el input pierda el foco al hacer clic (y que se dispare
+    // la validación "al salir del campo" sin que el usuario haya terminado).
+    btn.addEventListener('mousedown', (e) => e.preventDefault());
+
+    btn.addEventListener('click', () => {
+      const mostrar = input.type === 'password';
+      input.type = mostrar ? 'text' : 'password';
+      btn.textContent = mostrar ? 'Ocultar' : 'Mostrar';
+      btn.setAttribute('aria-pressed', String(mostrar));
+      btn.setAttribute('aria-label', (mostrar ? 'Ocultar ' : 'Mostrar ') + nombre);
+    });
+  });
+
   // ---- Validación en línea ----
   // Devuelve el mensaje de error del campo, o '' si está bien.
   function getError(input) {

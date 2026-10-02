@@ -38,8 +38,11 @@
           </div>
           <div class="field">
             <label for="contrasena">Contraseña</label>
-            <input type="password" id="contrasena" name="contrasena" placeholder="••••••••" required
-              autocomplete="current-password" aria-describedby="contrasena-error">
+            <div class="input-wrap">
+              <input type="password" id="contrasena" name="contrasena" placeholder="••••••••" required
+                autocomplete="current-password" aria-describedby="contrasena-error">
+              <button type="button" class="toggle-pass" aria-controls="contrasena" aria-pressed="false" aria-label="Mostrar contraseña">Mostrar</button>
+            </div>
             <small class="field-error" id="contrasena-error"></small>
           </div>
 

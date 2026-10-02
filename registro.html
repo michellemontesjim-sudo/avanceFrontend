@@ -45,14 +45,20 @@
           <div class="field-row">
             <div class="field">
               <label for="contrasena">Contraseña</label>
-              <input type="password" id="contrasena" name="contrasena" placeholder="••••••••" required minlength="8"
-                autocomplete="new-password" aria-describedby="contrasena-error">
+              <div class="input-wrap">
+                <input type="password" id="contrasena" name="contrasena" placeholder="••••••••" required minlength="8"
+                  autocomplete="new-password" aria-describedby="contrasena-error">
+                <button type="button" class="toggle-pass" aria-controls="contrasena" aria-pressed="false" aria-label="Mostrar contraseña">Mostrar</button>
+              </div>
               <small class="field-error" id="contrasena-error"></small>
             </div>
             <div class="field">
               <label for="confirmar">Confirmar contraseña</label>
-              <input type="password" id="confirmar" name="confirmar" placeholder="••••••••" required minlength="8"
-                autocomplete="new-password" aria-describedby="confirmar-error">
+              <div class="input-wrap">
+                <input type="password" id="confirmar" name="confirmar" placeholder="••••••••" required minlength="8"
+                  autocomplete="new-password" aria-describedby="confirmar-error">
+                <button type="button" class="toggle-pass" aria-controls="confirmar" aria-pressed="false" aria-label="Mostrar confirmación de contraseña">Mostrar</button>
+              </div>
               <small class="field-error" id="confirmar-error"></small>
             </div>
           </div>
