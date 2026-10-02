@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loginForm.addEventListener('submit', (e) => {
       e.preventDefault();
       if (!validateForm(loginForm)) return;
-      showStatus('formStatus', 'Inicio de sesión simulado correctamente.');
+      enviarSimulado(loginForm, 'Iniciando sesión…', 'Inicio de sesión simulado correctamente.');
     });
   }
 
@@ -124,8 +124,35 @@ document.addEventListener('DOMContentLoaded', () => {
     registroForm.addEventListener('submit', (e) => {
       e.preventDefault();
       if (!validateForm(registroForm)) return;
-      showStatus('formStatus', 'Cuenta creada de forma simulada.');
+      enviarSimulado(registroForm, 'Creando cuenta…', 'Cuenta creada de forma simulada.');
     });
+  }
+
+  // ---- Estado de carga al enviar ----
+  // Deshabilita el botón y cambia su texto mientras "espera" al servidor,
+  // así el usuario sabe que algo está pasando y no puede enviar dos veces.
+  function setLoading(button, loading, texto) {
+    if (loading) {
+      button.dataset.textoOriginal = button.textContent;
+      button.textContent = texto;
+    } else {
+      button.textContent = button.dataset.textoOriginal;
+    }
+    button.disabled = loading;
+    button.classList.toggle('is-loading', loading);
+    button.setAttribute('aria-busy', String(loading));
+  }
+
+  // Simula la petición al backend. Cuando exista la API, el setTimeout
+  // se reemplaza por un fetch() y setLoading(false) va en su finally.
+  function enviarSimulado(form, textoCargando, mensajeExito) {
+    const button = form.querySelector('button[type="submit"]');
+    if (button.disabled) return;
+    setLoading(button, true, textoCargando);
+    setTimeout(() => {
+      setLoading(button, false);
+      showStatus('formStatus', mensajeExito);
+    }, 1200);
   }
 
   function showStatus(id, message) {

@@ -170,6 +170,26 @@ nav.main-nav a:hover { color: var(--ink); }
 
 .btn-block { width: 100%; }
 
+/* Botón mientras se envía un formulario */
+.btn:disabled { cursor: progress; opacity: 0.8; }
+.btn:disabled:active { transform: none; }
+
+.btn.is-loading::before {
+  content: '';
+  width: 14px;
+  height: 14px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: girar 0.7s linear infinite;
+}
+
+@keyframes girar { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn.is-loading::before { animation: none; }
+}
+
 /* ---------- Hero ---------- */
 .hero {
   padding: 88px 0 96px;
