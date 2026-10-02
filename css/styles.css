@@ -624,6 +624,21 @@ footer.site-footer .wrap {
   color: var(--ink-light);
 }
 
+/* La casilla de términos está dentro de .field: sin esto hereda
+   width: 100% del input y display: block del label, y queda desalineada */
+.field label.checkbox-line {
+  display: flex;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--ink-light);
+}
+.field input[type="checkbox"] {
+  width: auto;
+  padding: 0;
+  margin: 0;
+}
+input[type="checkbox"] { accent-color: var(--ink); }
+
 .link-pen {
   color: var(--pen);
   text-decoration: none;
