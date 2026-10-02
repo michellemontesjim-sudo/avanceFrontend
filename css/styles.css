@@ -13,6 +13,7 @@
   --card: #fffdf8;
   --folder: #d9a441;
   --folder-dark: #b9852b;
+  --folder-text: #7f5a18; /* dorado oscuro para TEXTO: contraste ≥ 4.5:1 sobre --paper y --card */
   --pen: #b23a2e;
   --line: #d8cbae;
   --line-strong: #c3b48c;
@@ -28,6 +29,10 @@
 
 html { scroll-behavior: smooth; }
 
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
 body {
   margin: 0;
   font-family: var(--sans);
@@ -39,6 +44,21 @@ body {
 img { max-width: 100%; display: block; }
 
 a { color: inherit; }
+
+/* Foco visible al navegar con teclado (Tab) en enlaces y botones */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+input[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* Sobre fondos oscuros el contorno azul no se ve: se usa el dorado */
+.cta-band :focus-visible,
+.auth-side :focus-visible {
+  outline-color: var(--folder);
+}
 
 .wrap {
   max-width: var(--max-w);
@@ -228,7 +248,7 @@ nav.main-nav a:hover { color: var(--ink); }
 
 .hero h1 em {
   font-style: italic;
-  color: var(--folder-dark);
+  color: var(--folder-text);
 }
 
 .hero p.lede {
@@ -268,7 +288,7 @@ nav.main-nav a:hover { color: var(--ink); }
 .index-card .subject {
   font-size: 0.72rem;
   letter-spacing: 0.02em;
-  color: var(--folder-dark);
+  color: var(--folder-text);
   font-weight: 600;
   margin-bottom: 8px;
 }
@@ -628,7 +648,7 @@ footer.site-footer .wrap {
 .form-status.visible { display: block; }
 .form-status.ok {
   background: rgba(217,164,65,0.18);
-  color: var(--folder-dark);
+  color: var(--folder-text);
   border: 1px solid var(--folder);
 }
 
